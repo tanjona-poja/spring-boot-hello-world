@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class RestHelloController {
-	
-	@Autowired
-	Environment env;
-	
-	@GetMapping("/rest-hello/{name}")
-	public ResponseEntity<String> getHello(@PathVariable String name) {
-		return new ResponseEntity<String>("Hello, " + name + ":" + env.getProperty("local.server.port"), HttpStatus.OK);
-	}
+
+  @Autowired Environment env;
+
+  @GetMapping("/rest-hello/{name}")
+  public ResponseEntity<String> getHello(@PathVariable String name) {
+    return new ResponseEntity<String>(
+        "Hello, " + name + ":" + env.getProperty("local.server.port"), HttpStatus.OK);
+  }
 }
